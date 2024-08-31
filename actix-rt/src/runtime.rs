@@ -13,10 +13,15 @@ pub struct Runtime {
 }
 
 pub(crate) fn default_tokio_runtime() -> io::Result<tokio::runtime::Runtime> {
-    tokio::runtime::Builder::new_current_thread()
-        .enable_io()
-        .enable_time()
-        .build()
+    let mut builder = tokio::runtime::Builder::new_current_thread();
+    #[cfg(any(
+        feature = "net",
+        all(unix, feature = "signal"),
+    ))]
+    builder.enable_io();
+    #[cfg(feature = "time")]
+    builder.enable_time();
+    builder.build()
 }
 
 impl Runtime {
