@@ -82,6 +82,7 @@ fn join_another_arbiter() {
 }
 
 #[test]
+#[cfg(feature = "time")]
 fn non_static_block_on() {
     let string = String::from("test_str");
     let string = string.as_str();
@@ -235,7 +236,7 @@ fn system_stop_stops_arbiters() {
     arb.join().unwrap();
 }
 
-#[cfg(not(feature = "io-uring"))]
+#[cfg(all(not(feature = "io-uring"), feature = "time"))]
 #[test]
 fn new_system_with_tokio() {
     let (tx, rx) = channel();
@@ -268,7 +269,7 @@ fn new_system_with_tokio() {
     assert_eq!(rx.recv().unwrap(), 42);
 }
 
-#[cfg(not(feature = "io-uring"))]
+#[cfg(all(not(feature = "io-uring"), feature = "time"))]
 #[test]
 fn new_arbiter_with_tokio() {
     use std::sync::{

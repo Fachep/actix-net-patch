@@ -24,12 +24,16 @@ allowed_external_types = [
 default = ["macros"]
 macros = ["actix-macros"]
 io-uring = ["tokio-uring"]
+web = ["net", "signal", "time"]
+net = ["tokio/net"]
+signal = ["tokio/signal"]
+time = ["tokio/time"]
 
 [dependencies]
 actix-macros = { version = "0.2.3", optional = true }
 
 futures-core = { version = "0.3", default-features = false }
-tokio = { version = "1.23.1", features = ["rt", "net", "parking_lot", "signal", "sync", "time"] }
+tokio = { version = "1.23.1", features = ["rt", "parking_lot", "sync"] }
 
 # runtime for `io-uring` feature
 [target.'cfg(target_os = "linux")'.dependencies]

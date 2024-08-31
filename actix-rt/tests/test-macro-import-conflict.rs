@@ -6,7 +6,7 @@
 //!
 //! Prevented by using the fully-qualified test marker (`#[::core::prelude::v1::test]`).
 
-#![cfg(feature = "macros")]
+#![cfg(all(feature = "macros", feature = "time"))]
 
 use actix_rt::time as test;
 

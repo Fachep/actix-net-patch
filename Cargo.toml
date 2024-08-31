@@ -1,17 +1,17 @@
 [workspace]
 resolver = "2"
 members = [
-  "actix-codec",
-  "actix-macros",
+# "actix-codec",
+# "actix-macros",
   "actix-rt",
-  "actix-server",
-  "actix-service",
-  "actix-tls",
-  "actix-tracing",
-  "actix-utils",
-  "bytestring",
-  "local-channel",
-  "local-waker",
+# "actix-server",
+# "actix-service",
+# "actix-tls",
+# "actix-tracing",
+# "actix-utils",
+# "bytestring",
+# "local-channel",
+# "local-waker",
 ]
 
 [workspace.package]
@@ -20,17 +20,17 @@ edition = "2021"
 rust-version = "1.70"
 
 [patch.crates-io]
-actix-codec = { path = "actix-codec" }
-actix-macros = { path = "actix-macros" }
+# actix-codec = { path = "actix-codec" }
+# actix-macros = { path = "actix-macros" }
 actix-rt = { path = "actix-rt" }
-actix-server = { path = "actix-server" }
-actix-service = { path = "actix-service" }
-actix-tls = { path = "actix-tls" }
-actix-tracing = { path = "actix-tracing" }
-actix-utils = { path = "actix-utils" }
-bytestring = { path = "bytestring" }
-local-channel = { path = "local-channel" }
-local-waker = { path = "local-waker" }
+# actix-server = { path = "actix-server" }
+# actix-service = { path = "actix-service" }
+# actix-tls = { path = "actix-tls" }
+# actix-tracing = { path = "actix-tracing" }
+# actix-utils = { path = "actix-utils" }
+# bytestring = { path = "bytestring" }
+# local-channel = { path = "local-channel" }
+# local-waker = { path = "local-waker" }
 
 [profile.release]
 lto = true
